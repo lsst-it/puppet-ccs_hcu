@@ -26,10 +26,10 @@ class ccs_hcu (
 
   $opts1 = $opts0.map |$key, $value| {
     [$key, $value ? {
-      true    => 'present',
-      false   => 'absent',
-      default => $value,
-    }]}
+        true    => 'present',
+        false   => 'absent',
+        default => $value,
+  }]}
 
   $opts = Hash(flatten($opts1))
 
