@@ -22,11 +22,13 @@ class ccs_hcu::power (String $ensure = 'absent', Boolean $quadbox = false) {
   }
 
 
-  $files = ['CCS_POWEROFF',
-            'CCS_REBOOT',
-            'CCS_QUADBOX_POWEROFF'].filter |$elem| {
-              $elem =~ /QUADBOX/ ? { true => $quadbox, default => true }
-            }
+  $files = [
+    'CCS_POWEROFF',
+    'CCS_REBOOT',
+    'CCS_QUADBOX_POWEROFF',
+  ].filter |$elem| {
+    $elem =~ /QUADBOX/ ? { true => $quadbox, default => true }
+  }
 
   $files.each | String $file | {
     file { "/usr/local/bin/${file}":

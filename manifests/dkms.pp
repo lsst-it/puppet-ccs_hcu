@@ -9,19 +9,21 @@ define ccs_hcu::dkms (
   ensure_packages(['dkms', 'gcc', 'make', 'kernel-devel', 'kernel-headers'])
 
   case $ensure {
-    present: {
+    'present': {
       exec { "dkms install ${module}":
         path      => ['/usr/sbin', '/usr/bin'],
+        # lint:ignore:strict_indent
         command   => @("CMD"/L),
           sh -c 'dkms add -m ${module} -v ${version} && \
           dkms build -m ${module} -v ${version} && \
           dkms install -m ${module} -v ${version}'
           | CMD
+        # lint:endignore
         unless    => "sh -c 'dkms status | grep -q ^${module}'",
         subscribe => Archive[$archive],
       }
     }
-    absent: {
+    'absent': {
       exec { "dkms remove ${module}":
         path    => ['/usr/sbin', '/usr/bin'],
         command => "dkms remove -m ${module} -v ${version} --all",

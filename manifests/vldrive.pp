@@ -57,8 +57,8 @@ class ccs_hcu::vldrive (String $ensure = 'nothing') {
     $lib = 'libVL_OSALib.1.5.0.so'
 
     $lib_source = $ensure ? {
-      present => "/usr/src/${dest}/vl_${lib}",
-      default => '/usr/local/lib',
+      'present' => "/usr/src/${dest}/vl_${lib}",
+      default   => '/usr/local/lib',
     }
 
     ## If source does not exist, we get an error even if ensure is absent.
@@ -70,7 +70,7 @@ class ccs_hcu::vldrive (String $ensure = 'nothing') {
 
 
     $links = ['libVL_OSALib.so', 'libVL_OSALib.so.1']
-    $link_status = $ensure ? { present => 'link', default => 'absent' }
+    $link_status = $ensure ? { 'present' => 'link', default => 'absent' }
 
     $links.each|$link| {
       file { "/usr/local/lib/${link}":
@@ -103,10 +103,12 @@ class ccs_hcu::vldrive (String $ensure = 'nothing') {
 
     exec { 'udevadm vldrive':
       path        => ['/usr/sbin', '/usr/bin'],
+      # lint:ignore:strict_indent
       command     => @("CMD"/L),
         sh -c 'udevadm control --reload-rules && \
         udevadm trigger --type=devices --action=change'
         | CMD
+      # lint:endignore
       refreshonly => true,
     }
 

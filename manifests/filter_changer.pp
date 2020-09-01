@@ -18,10 +18,12 @@ class ccs_hcu::filter_changer (String $ensure = 'absent') {
 
   exec { 'udevadm filter_changer':
     path        => ['/usr/sbin', '/usr/bin'],
+    # lint:ignore:strict_indent
     command     => @("CMD"/L),
       sh -c 'udevadm control --reload-rules && \
       udevadm trigger --type=devices --action=change'
       | CMD
+    # lint:endignore
     refreshonly => true,
   }
 
