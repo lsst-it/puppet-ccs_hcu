@@ -1,0 +1,2 @@
+# This file is managed by Puppet; changes may be overwritten.
+SUBSYSTEM=="usb", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6011", GROUP="dialout", MODE="0664"

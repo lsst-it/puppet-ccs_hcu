@@ -8,6 +8,8 @@
 ##   false (or 'absent') removes it; 'nothing' does nothing.
 ## @param filter_changer
 ##   True (or 'present') to install; false (or 'absent') to remove.
+## @param ft4232h
+##   True to install udev file for libusb access.
 
 class ccs_hcu (
   Boolean $quadbox = false,
@@ -15,6 +17,7 @@ class ccs_hcu (
   Variant[Boolean,String] $vldrive = false,
   Variant[Boolean,String] $imanager = false,
   Variant[Boolean,String] $filter_changer = false,
+  Boolean $ft4232h = false,
 ) {
 
   $opts0 = {
@@ -53,6 +56,10 @@ class ccs_hcu (
 
   class { 'ccs_hcu::filter_changer':
     ensure => $opts['filter_changer'],
+  }
+
+  if $ft4232h {
+    include ccs_hcu::ft4232h
   }
 
 }
