@@ -9,10 +9,9 @@ class ccs_hcu::power (String $ensure = 'absent', Boolean $quadbox = false) {
 
   $ptitle = regsubst($title, '::.*', '', 'G')
 
-  file { '/etc/sudoers.d/poweroff':
-    ensure => $ensure,
-    source => "puppet:///modules/${ptitle}/sudo-poweroff",
-    mode   => '0440',
+  sudo::conf { 'poweroff':
+    source         => "puppet:///modules/${ptitle}/sudo-poweroff",
+    sudo_file_name => 'poweroff',
   }
 
   file { '/usr/local/libexec/poweroff':
