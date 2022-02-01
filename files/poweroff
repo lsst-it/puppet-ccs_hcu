@@ -11,7 +11,7 @@ esac
 shift
 
 [ "$1" = "-y" ] || {
-  read -n 1 -p "y to $task, else quit: " reply
+  read -n 1 -p "y to $task, else quit: " -r reply
   echo
   [ "$reply" = "y" ] || {
     echo "aborted"
@@ -27,7 +27,7 @@ prefix2=sudo
 if [ $UID -eq 0 ]; then
     prefix2=
 else
-    [ $(id -un) = $sudo_user ] || prefix="sudo -u $sudo_user"
+    [ "$(id -un)" = $sudo_user ] || prefix="sudo -u $sudo_user"
 fi
 
-$prefix $prefix2 /usr/bin/systemctl $task
+"$prefix" "$prefix2" /usr/bin/systemctl "$task"

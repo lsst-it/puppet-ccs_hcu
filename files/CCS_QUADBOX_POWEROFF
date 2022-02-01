@@ -8,7 +8,7 @@ user=ccs
 poweroff="/usr/local/bin/CCS_POWEROFF"
 
 
-[ $(id -un) = $user ] || {
+[ "$(id -un)" = $user ] || {
     ## Logging in as another user then sudo -u ccs doesn't work,
     ## since you cannot Kerberos access the remote hosts.
     echo "You must have logged in as $user to use this"
@@ -31,7 +31,7 @@ esac
 
 [ "$1" = "-y" ] || {
     echo "Preparing to shutdown quadbox: $quadbox"
-    read -n 1 -p "y to proceed, else quit: " reply
+    read -n 1 -p "y to proceed, else quit: " -r reply
     echo
     [ "$reply" = "y" ] || {
         echo "aborted"
@@ -42,7 +42,7 @@ esac
 
 ## We could use plain ssh instead.
 echo "Shutting down remote hosts..."
-clush -w $quadbox\!$shost $poweroff -y
+clush -w "$quadbox"\!"$shost" "$poweroff" -y
 
 echo "Shutting down this host"
-$poweroff $1
+"$poweroff" "$1"
