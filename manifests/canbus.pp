@@ -3,14 +3,23 @@
 #
 # @param ensure
 #   String saying whether to install ('present') or remove ('absent') module.
-class ccs_hcu::canbus (String $ensure = 'nothing') {
+#
+# @param module
+#   Module name.
+#
+# @param version
+#   Version string.
+#
+class ccs_hcu::canbus (
+  String $ensure = 'nothing',
+  String $module = 'advSocketCAN',
+  String $version = '1.0.1.0',
+) {
   $ptitle = regsubst($title, '::.*', '', 'G')
 
   if $ensure =~ /(present|absent)/ {
     ensure_packages(['xz', 'tar'])
 
-    $module = lookup('ccs_hcu::canbus::module')
-    $version = lookup('ccs_hcu::canbus::version')
     $ccs_pkgarchive = lookup('ccs_pkgarchive', String)
     ## Patched version with dkms.conf and fixed driver/Makefile.
     $src = "${module}_V${version}_dkms.tar.xz"

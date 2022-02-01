@@ -3,12 +3,21 @@
 #
 # @param ensure
 #   String saying whether to install ('present') or remove ('absent') module.
-class ccs_hcu::imanager (String $ensure = 'nothing') {
+#
+# @param module
+#   Module name.
+#
+# @param version
+#   Version string.
+#
+class ccs_hcu::imanager (
+  String $ensure = 'nothing',
+  String $module = 'imanager',
+  String $version = '1.5.0',
+) {
   if $ensure =~ /(present|absent)/ {
     ensure_packages(['xz', 'tar'])
 
-    $module = lookup('ccs_hcu::imanager::module')
-    $version = lookup('ccs_hcu::imanager::version')
     $ccs_pkgarchive = lookup('ccs_pkgarchive', String)
     ## Patched version with dkms.conf and fixed Makefile.
     $src = "${module}-${version}_dkms.tar.xz"
