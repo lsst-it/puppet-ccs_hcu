@@ -1,16 +1,22 @@
-## @summary
-##   Install hcu-specific stuff.
-##
-## @param quadbox
-##   True if this is a quadbox host.
-## @param canbus|vldrive|imanager
-##   True (or 'present') if need specified module;
-##   false (or 'absent') removes it; 'nothing' does nothing.
-## @param filter_changer
-##   True (or 'present') to install; false (or 'absent') to remove.
-## @param ft4232h
-##   True to install udev file for libusb access.
-
+# @summary
+#   Install hcu-specific stuff.
+#
+# @param quadbox
+#   True if this is a quadbox host.
+# @param canbus
+#   True (or 'present') if need specified module;
+#   false (or 'absent') removes it; 'nothing' does nothing.
+# @param vldrive
+#   True (or 'present') if need specified module;
+#   false (or 'absent') removes it; 'nothing' does nothing.
+# @param imanager
+#   True (or 'present') if need specified module;
+#   false (or 'absent') removes it; 'nothing' does nothing.
+# @param filter_changer
+#   True (or 'present') to install; false (or 'absent') to remove.
+# @param ft4232h
+#   true or false to enable ft4232h.
+#
 class ccs_hcu (
   Boolean $quadbox = false,
   Variant[Boolean,String] $canbus = false,
@@ -19,7 +25,6 @@ class ccs_hcu (
   Variant[Boolean,String] $filter_changer = false,
   Boolean $ft4232h = false,
 ) {
-
   $opts0 = {
     'canbus'         => $canbus,
     'vldrive'        => $vldrive,
@@ -32,10 +37,9 @@ class ccs_hcu (
         true    => 'present',
         false   => 'absent',
         default => $value,
-  }]}
+  }] }
 
   $opts = Hash(flatten($opts1))
-
 
   class { 'ccs_hcu::power':
     ensure  => present,
@@ -61,5 +65,4 @@ class ccs_hcu (
   if $ft4232h {
     include ccs_hcu::ft4232h
   }
-
 }

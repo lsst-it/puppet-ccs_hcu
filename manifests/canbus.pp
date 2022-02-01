@@ -1,18 +1,25 @@
-## @summary
-##   Add (or remove) the lion canbus module.
-##
-## @param ensure
-##   String saying whether to install ('present') or remove ('absent') module.
-class ccs_hcu::canbus (String $ensure = 'nothing') {
-
+# @summary
+#   Add (or remove) the lion canbus module.
+#
+# @param ensure
+#   String saying whether to install ('present') or remove ('absent') module.
+#
+# @param module
+#   Module name.
+#
+# @param version
+#   Version string.
+#
+class ccs_hcu::canbus (
+  String $ensure = 'nothing',
+  String $module = 'advSocketCAN',
+  String $version = '1.0.1.0',
+) {
   $ptitle = regsubst($title, '::.*', '', 'G')
 
   if $ensure =~ /(present|absent)/ {
-
     ensure_packages(['xz', 'tar'])
 
-    $module = lookup('ccs_hcu::canbus::module')
-    $version = lookup('ccs_hcu::canbus::version')
     $ccs_pkgarchive = lookup('ccs_pkgarchive', String)
     ## Patched version with dkms.conf and fixed driver/Makefile.
     $src = "${module}_V${version}_dkms.tar.xz"
@@ -29,7 +36,6 @@ class ccs_hcu::canbus (String $ensure = 'nothing') {
       cleanup      => true,
     }
 
-
     ccs_hcu::dkms { 'canbus':
       ensure  => $ensure,
       module  => $lmodule,
@@ -37,14 +43,12 @@ class ccs_hcu::canbus (String $ensure = 'nothing') {
       archive => '/var/tmp/canbus.tar.xz',
     }
 
-
     $conf = 'canbus.conf'
 
     file { "/etc/modules-load.d/${conf}":
       ensure => $ensure,
       source => "puppet:///modules/${ptitle}/${conf}",
     }
-
 
     $exec = '/usr/local/libexec/canbus-init'
 
@@ -54,7 +58,6 @@ class ccs_hcu::canbus (String $ensure = 'nothing') {
       mode   => '0755',
     }
 
-
     if $ensure == absent {
       service { 'canbus':
         ensure => stopped,
@@ -62,14 +65,12 @@ class ccs_hcu::canbus (String $ensure = 'nothing') {
       }
     }
 
-
     $service = 'canbus.service'
 
     file { "/etc/systemd/system/${service}":
       ensure  => $ensure,
-      content => epp("${ptitle}/${service}.epp", {'exec' => $exec}),
+      content => epp("${ptitle}/${service}.epp", { 'exec' => $exec }),
     }
-
 
     if $ensure == present {
       ## $exec fails if there is no canbus interface.
@@ -78,7 +79,5 @@ class ccs_hcu::canbus (String $ensure = 'nothing') {
         enable => true,
       }
     }
-
   }
-
 }

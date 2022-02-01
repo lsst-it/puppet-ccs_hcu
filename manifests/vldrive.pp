@@ -1,18 +1,25 @@
-## @summary
-##   Add (or remove) the lion vldrive module.
-##
-## @param ensure
-##   String saying whether to install ('present') or remove ('absent') module.
-class ccs_hcu::vldrive (String $ensure = 'nothing') {
-
+# @summary
+#   Add (or remove) the lion vldrive module.
+#
+# @param ensure
+#   String saying whether to install ('present') or remove ('absent') module.
+#
+# @param module
+#   Module name.
+#
+# @param version
+#   Version string.
+#
+class ccs_hcu::vldrive (
+  String $ensure = 'nothing',
+  String $module = 'versaapi',
+  String $version = '1.5.0',
+) {
   $ptitle = regsubst($title, '::.*', '', 'G')
 
   if $ensure =~ /(present|absent)/ {
-
     ensure_packages(['xz', 'tar'])
 
-    $module = lookup('ccs_hcu::vldrive::module')
-    $version = lookup('ccs_hcu::vldrive::version')
     $ccs_pkgarchive = lookup('ccs_pkgarchive', String)
     ## Patched version with dkms.conf and dkms_build.sh script.
     $src = "${module}-${version}_dkms.tar.xz"
@@ -28,14 +35,12 @@ class ccs_hcu::vldrive (String $ensure = 'nothing') {
       cleanup      => true,
     }
 
-
     ccs_hcu::dkms { 'vldrive':
       ensure  => $ensure,
       module  => $module,
       version => $version,
       archive => '/var/tmp/vldrive.tar.xz',
     }
-
 
     $modload = 'vldrive.conf'
 
@@ -44,7 +49,6 @@ class ccs_hcu::vldrive (String $ensure = 'nothing') {
       source => "puppet:///modules/${ptitle}/${modload}",
     }
 
-
     ## cat /sys/module/vldrive/parameters/FPGA_BASE should return 3200.
     $modconf = 'vldrive.conf'
 
@@ -52,7 +56,6 @@ class ccs_hcu::vldrive (String $ensure = 'nothing') {
       ensure => $ensure,
       source => "puppet:///modules/${ptitle}/modprobed-${modconf}",
     }
-
 
     $lib = 'libVL_OSALib.1.5.0.so'
 
@@ -68,7 +71,6 @@ class ccs_hcu::vldrive (String $ensure = 'nothing') {
       mode   => '0755',
     }
 
-
     $links = ['libVL_OSALib.so', 'libVL_OSALib.so.1']
     $link_status = $ensure ? { 'present' => 'link', default => 'absent' }
 
@@ -79,9 +81,8 @@ class ccs_hcu::vldrive (String $ensure = 'nothing') {
       }
     }
 
-
     if $ensure == present {
-      ensure_resources('group', {'gpio' => {'ensure' => 'present'}})
+      ensure_resources('group', { 'gpio' => { 'ensure' => 'present' } })
 
       exec { 'usermod ccs vldrive':
         path    => ['/usr/sbin', '/usr/bin'],
@@ -90,7 +91,6 @@ class ccs_hcu::vldrive (String $ensure = 'nothing') {
         require => Group['gpio'],
       }
     }
-
 
     ## Set /dev/vldrive: group gpio, mode 660 (default is root 600).
     $udev = '99-vldrive.rules'
@@ -111,7 +111,5 @@ class ccs_hcu::vldrive (String $ensure = 'nothing') {
       # lint:endignore
       refreshonly => true,
     }
-
   }
-
 }

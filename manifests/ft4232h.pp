@@ -1,15 +1,14 @@
-## @summary
-##   Add settings for FT4232H device.
-
+# @summary
+#   Add settings for FT4232H device.
+#
 class ccs_hcu::ft4232h () {
-
   $ptitle = regsubst($title, '::.*', '', 'G')
 
   ## Set /dev/bus/usb permissions for this device so libusb works.
   $udev = '99-ft4232h.rules'
 
   file { "/etc/udev/rules.d/${udev}":
-    ensure => 'present',
+    ensure => 'file',
     source => "puppet:///modules/${ptitle}/${udev}",
     notify => Exec['udevadm ft4232h'],
   }
@@ -24,5 +23,4 @@ class ccs_hcu::ft4232h () {
     # lint:endignore
     refreshonly => true,
   }
-
 }
