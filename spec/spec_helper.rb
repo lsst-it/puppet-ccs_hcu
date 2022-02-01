@@ -15,3 +15,11 @@ if File.exist?(File.join(__dir__, 'default_module_facts.yml'))
     add_custom_fact name.to_sym, value
   end
 end
+
+def fixtures_path
+  File.join(__dir__, 'fixtures')
+end
+
+RSpec.configure do |c|
+  c.hiera_config = File.join(fixtures_path, 'hiera.yaml')
+end
