@@ -1,12 +1,10 @@
-## @summary
-##   Add (or remove) the iManager module.
-##
-## @param ensure
-##   String saying whether to install ('present') or remove ('absent') module.
+# @summary
+#   Add (or remove) the iManager module.
+#
+# @param ensure
+#   String saying whether to install ('present') or remove ('absent') module.
 class ccs_hcu::imanager (String $ensure = 'nothing') {
-
   if $ensure =~ /(present|absent)/ {
-
     ensure_packages(['xz', 'tar'])
 
     $module = lookup('ccs_hcu::imanager::module')
@@ -26,14 +24,12 @@ class ccs_hcu::imanager (String $ensure = 'nothing') {
       cleanup      => true,
     }
 
-
     ccs_hcu::dkms { 'imanager':
       ensure  => $ensure,
       module  => $module,
       version => $version,
       archive => '/var/tmp/imanager.tar.xz',
     }
-
 
     $ptitle = regsubst($title, '::.*', '', 'G')
 
@@ -44,7 +40,6 @@ class ccs_hcu::imanager (String $ensure = 'nothing') {
       source => "puppet:///modules/${ptitle}/${conf}",
     }
 
-
     $exec = '/usr/local/libexec/imanager-init'
 
     file { $exec:
@@ -53,7 +48,6 @@ class ccs_hcu::imanager (String $ensure = 'nothing') {
       mode   => '0755',
     }
 
-
     if $ensure == absent {
       service { 'imanager':
         ensure => stopped,
@@ -61,17 +55,15 @@ class ccs_hcu::imanager (String $ensure = 'nothing') {
       }
     }
 
-
     $service = 'imanager.service'
 
     file { "/etc/systemd/system/${service}":
       ensure  => $ensure,
-      content => epp("${ptitle}/${service}.epp", {'exec' => $exec}),
+      content => epp("${ptitle}/${service}.epp", { 'exec' => $exec }),
     }
 
-
     if $ensure == present {
-      ensure_resources('group', {'gpio' => {'ensure' => 'present'}})
+      ensure_resources('group', { 'gpio' => { 'ensure' => 'present' } })
 
       exec { 'usermod ccs imanager':
         path    => ['/usr/sbin', '/usr/bin'],
@@ -81,7 +73,6 @@ class ccs_hcu::imanager (String $ensure = 'nothing') {
       }
     }
 
-
     if $ensure == present {
       ## $exec fails if there is no imanager interface.
       service { 'imanager':
@@ -89,7 +80,5 @@ class ccs_hcu::imanager (String $ensure = 'nothing') {
         enable => true,
       }
     }
-
   }
-
 }

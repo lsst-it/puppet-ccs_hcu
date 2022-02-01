@@ -1,12 +1,11 @@
-## @summary
-##   Add (or remove) hcu shutdown utilities
-##
-## @param ensure
-##   String saying whether to install ('present') or remove ('absent').
-## @param quadbox
-##   Boolean true on quadbox hosts
+# @summary
+#   Add (or remove) hcu shutdown utilities
+#
+# @param ensure
+#   String saying whether to install ('present') or remove ('absent').
+# @param quadbox
+#   Boolean true on quadbox hosts
 class ccs_hcu::power (String $ensure = 'absent', Boolean $quadbox = false) {
-
   $ptitle = regsubst($title, '::.*', '', 'G')
 
   sudo::conf { 'poweroff':
@@ -19,7 +18,6 @@ class ccs_hcu::power (String $ensure = 'absent', Boolean $quadbox = false) {
     source => "puppet:///modules/${ptitle}/poweroff",
     mode   => '0755',
   }
-
 
   $files = [
     'CCS_POWEROFF',
@@ -36,5 +34,4 @@ class ccs_hcu::power (String $ensure = 'absent', Boolean $quadbox = false) {
       mode   => '0755',
     }
   }
-
 }

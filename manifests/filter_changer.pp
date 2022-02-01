@@ -1,10 +1,9 @@
-## @summary
-##   Add (or remove) filter changer device links
-##
-## @param ensure
-##   String saying whether to install ('present') or remove ('absent').
+# @summary
+#   Add (or remove) filter changer device links
+#
+# @param ensure
+#   String saying whether to install ('present') or remove ('absent').
 class ccs_hcu::filter_changer (String $ensure = 'absent') {
-
   $ptitle = regsubst($title, '::.*', '', 'G')
 
   ## Create /dev/{encoder,motor} symlinks for filter changer hcu.
@@ -26,5 +25,4 @@ class ccs_hcu::filter_changer (String $ensure = 'absent') {
     # lint:endignore
     refreshonly => true,
   }
-
 }
