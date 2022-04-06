@@ -21,6 +21,8 @@ class ccs_hcu::canbus (
     ensure_packages(['xz', 'tar'])
 
     $ccs_pkgarchive = lookup('ccs_pkgarchive', String)
+    $ccs_pkgarchive_user = lookup('ccs_pkgarchive_user', String)
+    $ccs_pkgarchive_pass = lookup('ccs_pkgarchive_pass', String)
     ## Patched version with dkms.conf and fixed driver/Makefile.
     $src = "${module}_V${version}_dkms.tar.xz"
     $lmodule = "${downcase($module)}"
@@ -32,6 +34,8 @@ class ccs_hcu::canbus (
       extract      => true,
       extract_path => '/usr/src',
       source       => "${ccs_pkgarchive}/${src}",
+      username     => $ccs_pkgarchive_user,
+      password     => $ccs_pkgarchive_pass,
       creates      => "/usr/src/${dest}",
       cleanup      => true,
     }

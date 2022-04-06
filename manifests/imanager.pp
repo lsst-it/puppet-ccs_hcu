@@ -19,6 +19,8 @@ class ccs_hcu::imanager (
     ensure_packages(['xz', 'tar'])
 
     $ccs_pkgarchive = lookup('ccs_pkgarchive', String)
+    $ccs_pkgarchive_user = lookup('ccs_pkgarchive_user', String)
+    $ccs_pkgarchive_pass = lookup('ccs_pkgarchive_pass', String)
     ## Patched version with dkms.conf and fixed Makefile.
     $src = "${module}-${version}_dkms.tar.xz"
     $dest = "${module}-${version}"
@@ -29,6 +31,8 @@ class ccs_hcu::imanager (
       extract      => true,
       extract_path => '/usr/src',
       source       => "${ccs_pkgarchive}/${src}",
+      username     => $ccs_pkgarchive_user,
+      password     => $ccs_pkgarchive_pass,
       creates      => "/usr/src/${dest}",
       cleanup      => true,
     }

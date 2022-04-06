@@ -1,2 +1,4 @@
 ---
 ccs_pkgarchive: "https://example.org"
+ccs_pkgarchive_user: "someuser"
+ccs_pkgarchive_pass: "somepass"
