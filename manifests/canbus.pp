@@ -20,7 +20,6 @@ class ccs_hcu::canbus (
   if $ensure =~ /(present|absent)/ {
     ensure_packages(['xz', 'tar'])
 
-    $ccs_pkgarchive = lookup('ccs_pkgarchive', String)
     ## Patched version with dkms.conf and fixed driver/Makefile.
     $src = "${module}_V${version}_dkms.tar.xz"
     $lmodule = "${downcase($module)}"
@@ -31,7 +30,9 @@ class ccs_hcu::canbus (
       ensure       => $ensure,
       extract      => true,
       extract_path => '/usr/src',
-      source       => "${ccs_pkgarchive}/${src}",
+      source       => "${ccs_hcu::pkgurl}/${src}",
+      username     => $ccs_hcu::pkgurl_user,
+      password     => $ccs_hcu::pkgurl_pass,
       creates      => "/usr/src/${dest}",
       cleanup      => true,
     }

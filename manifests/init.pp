@@ -16,6 +16,12 @@
 #   True (or 'present') to install; false (or 'absent') to remove.
 # @param ft4232h
 #   true or false to enable ft4232h.
+# @param pkgurl
+#   String specifying URL to fetch sources from.
+# @param pkgurl_user
+#   String specifying username to access pkgurl.
+# @param pkgurl_pass
+#   String specifying password to access pkgurl.
 #
 class ccs_hcu (
   Boolean $quadbox = false,
@@ -24,6 +30,9 @@ class ccs_hcu (
   Variant[Boolean,String] $imanager = false,
   Variant[Boolean,String] $filter_changer = false,
   Boolean $ft4232h = false,
+  String $pkgurl = 'https://example.org',
+  String $pkgurl_user = 'someuser',
+  String $pkgurl_pass = 'somepass',
 ) {
   $opts0 = {
     'canbus'         => $canbus,
