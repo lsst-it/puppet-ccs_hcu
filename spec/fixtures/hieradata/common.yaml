@@ -1,2 +1,4 @@
 ---
 ccs_hcu::pkgurl: "https://example.org"
+ccs_hcu::pkgurl_user: "someuser"
+ccs_hcu::pkgurl_pass: "somepass"
