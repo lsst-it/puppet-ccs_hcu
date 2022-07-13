@@ -20,7 +20,6 @@ class ccs_hcu::vldrive (
   if $ensure =~ /(present|absent)/ {
     ensure_packages(['xz', 'tar'])
 
-    $ccs_pkgarchive = lookup('ccs_pkgarchive', String)
     ## Patched version with dkms.conf and dkms_build.sh script.
     $src = "${module}-${version}_dkms.tar.xz"
     $dest = "${module}-${version}"
@@ -30,7 +29,7 @@ class ccs_hcu::vldrive (
       ensure       => $ensure,
       extract      => true,
       extract_path => '/usr/src',
-      source       => "${ccs_pkgarchive}/${src}",
+      source       => "${ccs_hcu::pkgurl}/${src}",
       creates      => "/usr/src/${dest}",
       cleanup      => true,
     }

@@ -1,2 +1,2 @@
 ---
-ccs_pkgarchive: "https://example.org"
+ccs_hcu::pkgurl: "https://example.org"
