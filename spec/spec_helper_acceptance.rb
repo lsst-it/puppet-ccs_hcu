@@ -3,7 +3,7 @@
 require 'voxpupuli/acceptance/spec_helper_acceptance'
 
 configure_beaker do |host|
-  install_package(host, 'git')
+  install_module_from_forge_on(host, 'puppet/epel', '>= 4.1.0')
 end
 
 shared_examples 'an idempotent resource' do
