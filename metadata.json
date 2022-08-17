@@ -1,10 +1,10 @@
 {
   "name": "lsst-ccs_hcu",
-  "version": "2.2.1",
+  "version": "2.2.2",
   "author": "AURA/LSST/SLAC",
-  "summary": "",
+  "summary": "CCS HCU Configuration",
   "license": "Apache-2.0",
-  "source": "",
+  "source": "https://github.com/lsst-it/puppet-ccs_hcu",
   "dependencies": [
     {
       "name": "puppetlabs/stdlib",
