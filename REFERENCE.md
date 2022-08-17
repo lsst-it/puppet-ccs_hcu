@@ -34,6 +34,9 @@ The following parameters are available in the `ccs_hcu` class:
 * [`imanager`](#imanager)
 * [`filter_changer`](#filter_changer)
 * [`ft4232h`](#ft4232h)
+* [`pkgurl`](#pkgurl)
+* [`pkgurl_user`](#pkgurl_user)
+* [`pkgurl_pass`](#pkgurl_pass)
 
 ##### <a name="quadbox"></a>`quadbox`
 
@@ -85,6 +88,30 @@ Data type: `Boolean`
 true or false to enable ft4232h.
 
 Default value: ``false``
+
+##### <a name="pkgurl"></a>`pkgurl`
+
+Data type: `String`
+
+String specifying URL to fetch sources from.
+
+Default value: `'https://example.org'`
+
+##### <a name="pkgurl_user"></a>`pkgurl_user`
+
+Data type: `String`
+
+String specifying username to access pkgurl.
+
+Default value: `'someuser'`
+
+##### <a name="pkgurl_pass"></a>`pkgurl_pass`
+
+Data type: `String`
+
+String specifying password to access pkgurl.
+
+Default value: `'somepass'`
 
 ### <a name="ccs_hcucanbus"></a>`ccs_hcu::canbus`
 
