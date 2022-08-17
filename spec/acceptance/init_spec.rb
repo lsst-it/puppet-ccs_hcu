@@ -4,7 +4,7 @@ require 'spec_helper_acceptance'
 
 describe 'ccs_hcu class' do
   context 'without any parameters' do
-    let(:pp) do
+    let(:manifest) do
       <<-PP
       include epel
       include ccs_hcu
