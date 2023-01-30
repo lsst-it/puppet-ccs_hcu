@@ -7,16 +7,16 @@
 ### Classes
 
 * [`ccs_hcu`](#ccs_hcu): Install hcu-specific stuff.
-* [`ccs_hcu::canbus`](#ccs_hcucanbus): Add (or remove) the lion canbus module.
-* [`ccs_hcu::filter_changer`](#ccs_hcufilter_changer): Add (or remove) filter changer device links
-* [`ccs_hcu::ft4232h`](#ccs_hcuft4232h): Add settings for FT4232H device.
-* [`ccs_hcu::imanager`](#ccs_hcuimanager): Add (or remove) the iManager module.
-* [`ccs_hcu::power`](#ccs_hcupower): Add (or remove) hcu shutdown utilities
-* [`ccs_hcu::vldrive`](#ccs_hcuvldrive): Add (or remove) the lion vldrive module.
+* [`ccs_hcu::canbus`](#ccs_hcu--canbus): Add (or remove) the lion canbus module.
+* [`ccs_hcu::filter_changer`](#ccs_hcu--filter_changer): Add (or remove) filter changer device links
+* [`ccs_hcu::ft4232h`](#ccs_hcu--ft4232h): Add settings for FT4232H device.
+* [`ccs_hcu::imanager`](#ccs_hcu--imanager): Add (or remove) the iManager module.
+* [`ccs_hcu::power`](#ccs_hcu--power): Add (or remove) hcu shutdown utilities
+* [`ccs_hcu::vldrive`](#ccs_hcu--vldrive): Add (or remove) the lion vldrive module.
 
 ### Defined types
 
-* [`ccs_hcu::dkms`](#ccs_hcudkms): Configure DKMS for module
+* [`ccs_hcu::dkms`](#ccs_hcu--dkms): Configure DKMS for module
 
 ## Classes
 
@@ -28,68 +28,68 @@ Install hcu-specific stuff.
 
 The following parameters are available in the `ccs_hcu` class:
 
-* [`quadbox`](#quadbox)
-* [`canbus`](#canbus)
-* [`vldrive`](#vldrive)
-* [`imanager`](#imanager)
-* [`filter_changer`](#filter_changer)
-* [`ft4232h`](#ft4232h)
-* [`pkgurl`](#pkgurl)
-* [`pkgurl_user`](#pkgurl_user)
-* [`pkgurl_pass`](#pkgurl_pass)
+* [`quadbox`](#-ccs_hcu--quadbox)
+* [`canbus`](#-ccs_hcu--canbus)
+* [`vldrive`](#-ccs_hcu--vldrive)
+* [`imanager`](#-ccs_hcu--imanager)
+* [`filter_changer`](#-ccs_hcu--filter_changer)
+* [`ft4232h`](#-ccs_hcu--ft4232h)
+* [`pkgurl`](#-ccs_hcu--pkgurl)
+* [`pkgurl_user`](#-ccs_hcu--pkgurl_user)
+* [`pkgurl_pass`](#-ccs_hcu--pkgurl_pass)
 
-##### <a name="quadbox"></a>`quadbox`
+##### <a name="-ccs_hcu--quadbox"></a>`quadbox`
 
 Data type: `Boolean`
 
 True if this is a quadbox host.
 
-Default value: ``false``
+Default value: `false`
 
-##### <a name="canbus"></a>`canbus`
-
-Data type: `Variant[Boolean,String]`
-
-True (or 'present') if need specified module;
-false (or 'absent') removes it; 'nothing' does nothing.
-
-Default value: ``false``
-
-##### <a name="vldrive"></a>`vldrive`
+##### <a name="-ccs_hcu--canbus"></a>`canbus`
 
 Data type: `Variant[Boolean,String]`
 
 True (or 'present') if need specified module;
 false (or 'absent') removes it; 'nothing' does nothing.
 
-Default value: ``false``
+Default value: `false`
 
-##### <a name="imanager"></a>`imanager`
+##### <a name="-ccs_hcu--vldrive"></a>`vldrive`
 
 Data type: `Variant[Boolean,String]`
 
 True (or 'present') if need specified module;
 false (or 'absent') removes it; 'nothing' does nothing.
 
-Default value: ``false``
+Default value: `false`
 
-##### <a name="filter_changer"></a>`filter_changer`
+##### <a name="-ccs_hcu--imanager"></a>`imanager`
+
+Data type: `Variant[Boolean,String]`
+
+True (or 'present') if need specified module;
+false (or 'absent') removes it; 'nothing' does nothing.
+
+Default value: `false`
+
+##### <a name="-ccs_hcu--filter_changer"></a>`filter_changer`
 
 Data type: `Variant[Boolean,String]`
 
 True (or 'present') to install; false (or 'absent') to remove.
 
-Default value: ``false``
+Default value: `false`
 
-##### <a name="ft4232h"></a>`ft4232h`
+##### <a name="-ccs_hcu--ft4232h"></a>`ft4232h`
 
 Data type: `Boolean`
 
 true or false to enable ft4232h.
 
-Default value: ``false``
+Default value: `false`
 
-##### <a name="pkgurl"></a>`pkgurl`
+##### <a name="-ccs_hcu--pkgurl"></a>`pkgurl`
 
 Data type: `String`
 
@@ -97,7 +97,7 @@ String specifying URL to fetch sources from.
 
 Default value: `'https://example.org'`
 
-##### <a name="pkgurl_user"></a>`pkgurl_user`
+##### <a name="-ccs_hcu--pkgurl_user"></a>`pkgurl_user`
 
 Data type: `String`
 
@@ -105,7 +105,7 @@ String specifying username to access pkgurl.
 
 Default value: `'someuser'`
 
-##### <a name="pkgurl_pass"></a>`pkgurl_pass`
+##### <a name="-ccs_hcu--pkgurl_pass"></a>`pkgurl_pass`
 
 Data type: `String`
 
@@ -113,7 +113,7 @@ String specifying password to access pkgurl.
 
 Default value: `'somepass'`
 
-### <a name="ccs_hcucanbus"></a>`ccs_hcu::canbus`
+### <a name="ccs_hcu--canbus"></a>`ccs_hcu::canbus`
 
 Add (or remove) the lion canbus module.
 
@@ -121,11 +121,11 @@ Add (or remove) the lion canbus module.
 
 The following parameters are available in the `ccs_hcu::canbus` class:
 
-* [`ensure`](#ensure)
-* [`module`](#module)
-* [`version`](#version)
+* [`ensure`](#-ccs_hcu--canbus--ensure)
+* [`module`](#-ccs_hcu--canbus--module)
+* [`version`](#-ccs_hcu--canbus--version)
 
-##### <a name="ensure"></a>`ensure`
+##### <a name="-ccs_hcu--canbus--ensure"></a>`ensure`
 
 Data type: `String`
 
@@ -133,7 +133,7 @@ String saying whether to install ('present') or remove ('absent') module.
 
 Default value: `'nothing'`
 
-##### <a name="module"></a>`module`
+##### <a name="-ccs_hcu--canbus--module"></a>`module`
 
 Data type: `String`
 
@@ -141,7 +141,7 @@ Module name.
 
 Default value: `'advSocketCAN'`
 
-##### <a name="version"></a>`version`
+##### <a name="-ccs_hcu--canbus--version"></a>`version`
 
 Data type: `String`
 
@@ -149,7 +149,7 @@ Version string.
 
 Default value: `'1.0.1.0'`
 
-### <a name="ccs_hcufilter_changer"></a>`ccs_hcu::filter_changer`
+### <a name="ccs_hcu--filter_changer"></a>`ccs_hcu::filter_changer`
 
 Add (or remove) filter changer device links
 
@@ -157,9 +157,9 @@ Add (or remove) filter changer device links
 
 The following parameters are available in the `ccs_hcu::filter_changer` class:
 
-* [`ensure`](#ensure)
+* [`ensure`](#-ccs_hcu--filter_changer--ensure)
 
-##### <a name="ensure"></a>`ensure`
+##### <a name="-ccs_hcu--filter_changer--ensure"></a>`ensure`
 
 Data type: `String`
 
@@ -167,11 +167,11 @@ String saying whether to install ('present') or remove ('absent').
 
 Default value: `'absent'`
 
-### <a name="ccs_hcuft4232h"></a>`ccs_hcu::ft4232h`
+### <a name="ccs_hcu--ft4232h"></a>`ccs_hcu::ft4232h`
 
 Add settings for FT4232H device.
 
-### <a name="ccs_hcuimanager"></a>`ccs_hcu::imanager`
+### <a name="ccs_hcu--imanager"></a>`ccs_hcu::imanager`
 
 Add (or remove) the iManager module.
 
@@ -179,11 +179,11 @@ Add (or remove) the iManager module.
 
 The following parameters are available in the `ccs_hcu::imanager` class:
 
-* [`ensure`](#ensure)
-* [`module`](#module)
-* [`version`](#version)
+* [`ensure`](#-ccs_hcu--imanager--ensure)
+* [`module`](#-ccs_hcu--imanager--module)
+* [`version`](#-ccs_hcu--imanager--version)
 
-##### <a name="ensure"></a>`ensure`
+##### <a name="-ccs_hcu--imanager--ensure"></a>`ensure`
 
 Data type: `String`
 
@@ -191,7 +191,7 @@ String saying whether to install ('present') or remove ('absent') module.
 
 Default value: `'nothing'`
 
-##### <a name="module"></a>`module`
+##### <a name="-ccs_hcu--imanager--module"></a>`module`
 
 Data type: `String`
 
@@ -199,7 +199,7 @@ Module name.
 
 Default value: `'imanager'`
 
-##### <a name="version"></a>`version`
+##### <a name="-ccs_hcu--imanager--version"></a>`version`
 
 Data type: `String`
 
@@ -207,7 +207,7 @@ Version string.
 
 Default value: `'1.5.0'`
 
-### <a name="ccs_hcupower"></a>`ccs_hcu::power`
+### <a name="ccs_hcu--power"></a>`ccs_hcu::power`
 
 Add (or remove) hcu shutdown utilities
 
@@ -215,10 +215,10 @@ Add (or remove) hcu shutdown utilities
 
 The following parameters are available in the `ccs_hcu::power` class:
 
-* [`ensure`](#ensure)
-* [`quadbox`](#quadbox)
+* [`ensure`](#-ccs_hcu--power--ensure)
+* [`quadbox`](#-ccs_hcu--power--quadbox)
 
-##### <a name="ensure"></a>`ensure`
+##### <a name="-ccs_hcu--power--ensure"></a>`ensure`
 
 Data type: `String`
 
@@ -226,15 +226,15 @@ String saying whether to install ('present') or remove ('absent').
 
 Default value: `'absent'`
 
-##### <a name="quadbox"></a>`quadbox`
+##### <a name="-ccs_hcu--power--quadbox"></a>`quadbox`
 
 Data type: `Boolean`
 
 Boolean true on quadbox hosts
 
-Default value: ``false``
+Default value: `false`
 
-### <a name="ccs_hcuvldrive"></a>`ccs_hcu::vldrive`
+### <a name="ccs_hcu--vldrive"></a>`ccs_hcu::vldrive`
 
 Add (or remove) the lion vldrive module.
 
@@ -242,11 +242,11 @@ Add (or remove) the lion vldrive module.
 
 The following parameters are available in the `ccs_hcu::vldrive` class:
 
-* [`ensure`](#ensure)
-* [`module`](#module)
-* [`version`](#version)
+* [`ensure`](#-ccs_hcu--vldrive--ensure)
+* [`module`](#-ccs_hcu--vldrive--module)
+* [`version`](#-ccs_hcu--vldrive--version)
 
-##### <a name="ensure"></a>`ensure`
+##### <a name="-ccs_hcu--vldrive--ensure"></a>`ensure`
 
 Data type: `String`
 
@@ -254,7 +254,7 @@ String saying whether to install ('present') or remove ('absent') module.
 
 Default value: `'nothing'`
 
-##### <a name="module"></a>`module`
+##### <a name="-ccs_hcu--vldrive--module"></a>`module`
 
 Data type: `String`
 
@@ -262,7 +262,7 @@ Module name.
 
 Default value: `'versaapi'`
 
-##### <a name="version"></a>`version`
+##### <a name="-ccs_hcu--vldrive--version"></a>`version`
 
 Data type: `String`
 
@@ -272,7 +272,7 @@ Default value: `'1.5.0'`
 
 ## Defined types
 
-### <a name="ccs_hcudkms"></a>`ccs_hcu::dkms`
+### <a name="ccs_hcu--dkms"></a>`ccs_hcu::dkms`
 
 Configure DKMS for module
 
@@ -280,30 +280,30 @@ Configure DKMS for module
 
 The following parameters are available in the `ccs_hcu::dkms` defined type:
 
-* [`ensure`](#ensure)
-* [`module`](#module)
-* [`version`](#version)
-* [`archive`](#archive)
+* [`ensure`](#-ccs_hcu--dkms--ensure)
+* [`module`](#-ccs_hcu--dkms--module)
+* [`version`](#-ccs_hcu--dkms--version)
+* [`archive`](#-ccs_hcu--dkms--archive)
 
-##### <a name="ensure"></a>`ensure`
+##### <a name="-ccs_hcu--dkms--ensure"></a>`ensure`
 
 Data type: `Enum['present', 'absent']`
 
 String saying whether to install ('present') or remove ('absent') module.
 
-##### <a name="module"></a>`module`
+##### <a name="-ccs_hcu--dkms--module"></a>`module`
 
 Data type: `String`
 
 Name of module
 
-##### <a name="version"></a>`version`
+##### <a name="-ccs_hcu--dkms--version"></a>`version`
 
 Data type: `String`
 
 Version String
 
-##### <a name="archive"></a>`archive`
+##### <a name="-ccs_hcu--dkms--archive"></a>`archive`
 
 Data type: `String`
 
