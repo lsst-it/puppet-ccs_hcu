@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
 configure_beaker do |host|
-  install_module_from_forge_on(host, 'puppet/epel', '>= 4.1.0')
+  install_puppet_module_via_pmt_on(host, 'puppet/epel', '4')
 end
