@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 Each new release typically also includes the latest modulesync defaults.
 These should not affect the functionality of the module.
 
+## [v3.1.0](https://github.com/lsst-it/puppet-ccs_hcu/tree/v3.1.0) (2023-08-22)
+
+[Full Changelog](https://github.com/lsst-it/puppet-ccs_hcu/compare/v3.0.0...v3.1.0)
+
+**Implemented enhancements:**
+
+- allow saz/sudo 8.x [\#23](https://github.com/lsst-it/puppet-ccs_hcu/pull/23) ([jhoblitt](https://github.com/jhoblitt))
+- allow stdlib 9.x [\#21](https://github.com/lsst-it/puppet-ccs_hcu/pull/21) ([jhoblitt](https://github.com/jhoblitt))
+
 ## [v3.0.0](https://github.com/lsst-it/puppet-ccs_hcu/tree/v3.0.0) (2023-06-23)
 
 [Full Changelog](https://github.com/lsst-it/puppet-ccs_hcu/compare/v2.3.0...v3.0.0)
