@@ -9,16 +9,25 @@ groups ccs | grep -q gpio || usermod -a -G gpio ccs
 modprobe imanager-core
 modprobe gpio-imanager
 
-[ -e /sys/class/gpio/export ] || exit 1
+if [ -e /sys/class/gpio ]; then # <= rhel8
 
-for ((n=504;n<=511;n++)); do
-    echo "$n" > /sys/class/gpio/export
-done
+    [ -e /sys/class/gpio/export ] || exit 1
 
-chmod g+w /sys/class/gpio/gpio{508..511}/value
-chmod og+w /sys/class/gpio/gpio50*/value
+    for ((n=504;n<=511;n++)); do
+        echo "$n" > /sys/class/gpio/export
+    done
 
-chgrp -R gpio /sys/class/gpio
+    ## These partially overlap, and it is not clear to me exactly what
+    ## was wanted.
+    chmod g+w /sys/class/gpio/gpio{508..511}/value
+    chmod og+w /sys/class/gpio/gpio50*/value
+
+    chgrp -R gpio /sys/class/gpio
+else                            # >= rhel9
+    ## In rhel9+, ownership is handled by a udev rule.
+    :
+fi
+
 chgrp -R gpio /sys/devices/platform/imanager/imanager-gpio
 
 exit 0
