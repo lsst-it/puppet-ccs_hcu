@@ -1,6 +1,6 @@
 {
   "name": "lsst-ccs_hcu",
-  "version": "3.1.1",
+  "version": "3.1.2",
   "author": "AURA/LSST/SLAC",
   "summary": "CCS HCU Configuration",
   "license": "Apache-2.0",

@@ -4,6 +4,23 @@ All notable changes to this project will be documented in this file.
 Each new release typically also includes the latest modulesync defaults.
 These should not affect the functionality of the module.
 
+## [v3.1.2](https://github.com/lsst-it/puppet-ccs_hcu/tree/v3.1.2) (2024-01-29)
+
+[Full Changelog](https://github.com/lsst-it/puppet-ccs_hcu/compare/v3.1.1...v3.1.2)
+
+**Implemented enhancements:**
+
+- \(imanager\) tweak parameters of the gpio group [\#27](https://github.com/lsst-it/puppet-ccs_hcu/pull/27) ([glennmorris](https://github.com/glennmorris))
+
+## [v3.1.1](https://github.com/lsst-it/puppet-ccs_hcu/tree/v3.1.1) (2023-11-16)
+
+[Full Changelog](https://github.com/lsst-it/puppet-ccs_hcu/compare/v3.1.0...v3.1.1)
+
+**Implemented enhancements:**
+
+- Bump version to 3.1.1 [\#26](https://github.com/lsst-it/puppet-ccs_hcu/pull/26) ([glennmorris](https://github.com/glennmorris))
+- \(files/imanager-init\) handle rhel9+, with no /sys/class/gpio [\#25](https://github.com/lsst-it/puppet-ccs_hcu/pull/25) ([glennmorris](https://github.com/glennmorris))
+
 ## [v3.1.0](https://github.com/lsst-it/puppet-ccs_hcu/tree/v3.1.0) (2023-08-22)
 
 [Full Changelog](https://github.com/lsst-it/puppet-ccs_hcu/compare/v3.0.0...v3.1.0)
