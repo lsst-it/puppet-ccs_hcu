@@ -74,11 +74,11 @@ class ccs_hcu::imanager (
 
     if $ensure == present {
       ensure_resources('group', {
-        'gpio' => {
-          'ensure'     => 'present',
-          'forcelocal' => 'true',
-          'system'     => 'true',
-        }
+          'gpio' => {
+            'ensure'     => 'present',
+            'forcelocal' => 'true',
+            'system'     => 'true',
+          }
       })
 
       exec { 'usermod ccs imanager':
