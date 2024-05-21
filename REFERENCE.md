@@ -99,19 +99,19 @@ Default value: `'https://example.org'`
 
 ##### <a name="-ccs_hcu--pkgurl_user"></a>`pkgurl_user`
 
-Data type: `String`
+Data type: `Variant[Sensitive[String[1]],String[1]]`
 
 String specifying username to access pkgurl.
 
-Default value: `'someuser'`
+Default value: `Sensitive('someuser')`
 
 ##### <a name="-ccs_hcu--pkgurl_pass"></a>`pkgurl_pass`
 
-Data type: `String`
+Data type: `Sensitive[String[1]]`
 
 String specifying password to access pkgurl.
 
-Default value: `'somepass'`
+Default value: `Sensitive('somepass')`
 
 ### <a name="ccs_hcu--canbus"></a>`ccs_hcu::canbus`
 

@@ -31,8 +31,8 @@ class ccs_hcu (
   Variant[Boolean,String] $filter_changer = false,
   Boolean $ft4232h = false,
   String $pkgurl = 'https://example.org',
-  String $pkgurl_user = 'someuser',
-  String $pkgurl_pass = 'somepass',
+  Variant[Sensitive[String[1]],String[1]] $pkgurl_user = Sensitive('someuser'),
+  Sensitive[String[1]] $pkgurl_pass = Sensitive('somepass'),
 ) {
   $opts0 = {
     'canbus'         => $canbus,
