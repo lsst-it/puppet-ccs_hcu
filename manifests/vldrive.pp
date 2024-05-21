@@ -30,8 +30,8 @@ class ccs_hcu::vldrive (
       extract      => true,
       extract_path => '/usr/src',
       source       => "${ccs_hcu::pkgurl}/${src}",
-      username     => $ccs_hcu::pkgurl_user,
-      password     => $ccs_hcu::pkgurl_pass,
+      username     => $ccs_hcu::pkgurl_user.unwrap,
+      password     => $ccs_hcu::pkgurl_pass.unwrap,
       creates      => "/usr/src/${dest}",
       cleanup      => true,
     }
