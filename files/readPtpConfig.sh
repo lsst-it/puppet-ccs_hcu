@@ -36,7 +36,7 @@ rawcoe="${rawcoe}"$(readRawCoe "${netId}" "${port}" "${coeIndex}" "${coeSubindex
 
 # MAC address
 coeIndex=0xf8f0
-coeSubIndex=0x0001
+coeSubindex=0x0001
 byteCount=6
 rawcoe="${rawcoe}"$(readRawCoe "${netId}" "${port}" "${coeIndex}" "${coeSubindex}" "${byteCount}")
 
