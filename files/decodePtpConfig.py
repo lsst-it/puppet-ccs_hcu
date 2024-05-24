@@ -1,4 +1,5 @@
 #!/bin/env python2
+## This file is managed by Puppet; changes may be overwritten.
 
 # Reads binary data from stdin and attempts to interpret it as the
 # result of a combination raw ADS reads of various configuration

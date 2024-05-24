@@ -1,4 +1,6 @@
 #!/bin/bash
+## This file is managed by Puppet; changes may be overwritten.
+
 homeDir=$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")
 
 # This script uses adstool to read the CoE data for "PTP Diag" from

@@ -1,3 +1,4 @@
+## This file is managed by Puppet; changes may be overwritten.
 # This file is meant to be sourced by CoE-reading scripts such as readPTPDiag.sh
 
 # The AMS netId of the EtherCAT master for each shutter unit. Unit 1 then unit 2.

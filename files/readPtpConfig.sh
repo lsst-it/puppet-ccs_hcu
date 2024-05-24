@@ -1,4 +1,5 @@
 #!/bin/bash
+## This file is managed by Puppet; changes may be overwritten.
 
 # This script uses adstool to read various configuration parameters
 # from the CoE interface of the EL6688 PTP device.
