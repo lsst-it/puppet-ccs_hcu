@@ -9,7 +9,8 @@ homeDir=$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")
 #
 # See the Confluence page https://confluence.slac.stanford.edu/x/uXYtFw
 
-source ${homeDir}/ptpCoeSetup.sh
+# shellcheck source=ptpCoeSetup.sh
+source "${homeDir}"/ptpCoeSetup.sh
 
 # The CoE address for the PTP diagnostic data. We use the special subindex
 # that means read all subindexes.
@@ -23,5 +24,5 @@ byteCount=54
 iunit=1
 
 # Obtain the raw CoE data then decode it.
-echo $(readRawCoe ${ethercatNetId[iunit]} ${ptpAdsPort[iunit]} ${coeIndex} ${coeSubindex} ${byteCount})\
-       | xxd -p -r | python -u ${homeDir}/decodePtpDiag.py
+readRawCoe "${ethercatNetId[iunit]}" "${ptpAdsPort[iunit]}" "${coeIndex}" "${coeSubindex}" "${byteCount}" \
+       | xxd -p -r | python -u "${homeDir}"/decodePtpDiag.py
