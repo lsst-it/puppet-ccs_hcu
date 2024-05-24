@@ -1,10 +1,13 @@
 ## This file is managed by Puppet; changes may be overwritten.
+# shellcheck shell=bash
 # This file is meant to be sourced by CoE-reading scripts such as readPTPDiag.sh
 
 # The AMS netId of the EtherCAT master for each shutter unit. Unit 1 then unit 2.
+# shellcheck disable=SC2034
 ethercatNetId=("unknown" "10.0.1.28.2.1")
 
 # The ADS port for the EL6688 PTP device (decimal).
+# shellcheck disable=SC2034
 ptpAdsPort=("1007" "1007")
 
 # The ADS Group Index for CoE access.
@@ -28,6 +31,7 @@ readRawCoe() {
     coeIndex=$(($3 + 0))
     coeSubindex=$(($4 + 0))
     byteCount=$5
-    adsOffset=$(( (${coeIndex} << 16) + coeSubindex ))
-    echo "$(${homeDir}/adstool ${netId}:${port} --gw=${shutterControllerIp} raw --read=${byteCount} ${adsCoeGroup} ${adsOffset} 2>/dev/null | xxd -p)"
+    adsOffset=$(( (coeIndex << 16) + coeSubindex ))
+# shellcheck disable=SC2154
+    "${homeDir}"/adstool "${netId}:${port}" --gw="${shutterControllerIp}" raw --read="${byteCount}" "${adsCoeGroup}" "${adsOffset}" 2>/dev/null | xxd -p
 }
