@@ -25,4 +25,4 @@ iunit=1
 
 # Obtain the raw CoE data then decode it.
 readRawCoe "${ethercatNetId[iunit]}" "${ptpAdsPort[iunit]}" "${coeIndex}" "${coeSubindex}" "${byteCount}" \
-       | xxd -p -r | python -u "${homeDir}"/decodePtpDiag.py
+       | xxd -p -r | "${homeDir}"/decodePtpDiag.py

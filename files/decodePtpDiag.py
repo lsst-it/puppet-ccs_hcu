@@ -1,4 +1,4 @@
-#!/bin/env python2
+#!/usr/bin/python3 -u
 ## This file is managed by Puppet; changes may be overwritten.
 
 # Reads binary data from stdin and attempts to interpret it as the
@@ -49,21 +49,21 @@ def strScale(scaleNum):
         s = "N/A"
     return s + " (" + str(scaleNum) + ")"
 
-rawcoe = sys.stdin.read()
+rawcoe = sys.stdin.buffer.read()
 coe = list(unpack("<HH8s10s8siI8H", rawcoe))
-print "Local date and time:        ", datetime.datetime.now()
-print "PTP version:                ", strVersion(           coe[ 0] )
-print "PTP state:                  ", strState(             coe[ 1] )
-print "Clock ID (hex):             ", strHex(               coe[ 2] )
-print "Parent clock ID (hex):      ", strHex(               coe[ 3] )
-print "Grandmaster clock ID (hex): ", strHex(               coe[ 4] )
-print "Offset from master (ns):    ", "{:,}".format(        coe[ 5] )
-print "Mean path delay (ns):       ", "{:,}".format(        coe[ 6] )
-print "Steps removed:              ",                       coe[ 7]
-print "Sync msg sequence no.:      ",                       coe[ 8]
-print "Time scale:                 ", strScale(             coe[ 9] )
-print "Offset from UTC (sec):      ",                       coe[10]
-print "UTC offset valid?           ", bool(                 coe[11] )
-print "Leap61?                     ", bool(                 coe[12] )
-print "Leap59?                     ", bool(                 coe[13] )
-print "Epoch no.:                  ",                       coe[14]
+print("Local date and time:        ", datetime.datetime.now())
+print("PTP version:                ", strVersion(           coe[ 0] ))
+print("PTP state:                  ", strState(             coe[ 1] ))
+print("Clock ID (hex):             ", strHex(               coe[ 2] ))
+print("Parent clock ID (hex):      ", strHex(               coe[ 3] ))
+print("Grandmaster clock ID (hex): ", strHex(               coe[ 4] ))
+print("Offset from master (ns):    ", "{:,}".format(        coe[ 5] ))
+print("Mean path delay (ns):       ", "{:,}".format(        coe[ 6] ))
+print("Steps removed:              ",                       coe[ 7])
+print("Sync msg sequence no.:      ",                       coe[ 8])
+print("Time scale:                 ", strScale(             coe[ 9] ))
+print("Offset from UTC (sec):      ",                       coe[10])
+print("UTC offset valid?           ", bool(                 coe[11] ))
+print("Leap61?                     ", bool(                 coe[12] ))
+print("Leap59?                     ", bool(                 coe[13] ))
+print("Epoch no.:                  ",                       coe[14])

@@ -1,4 +1,4 @@
-#!/bin/env python2
+#!/usr/bin/python3 -u
 ## This file is managed by Puppet; changes may be overwritten.
 
 # Reads binary data from stdin and attempts to interpret it as the
@@ -63,23 +63,23 @@ def strMech(mech):
 def strHex(by):
     return " ".join("{:02x}".format(ord(b)) for b in by)
 
-rawcoe = sys.stdin.read()
+rawcoe = sys.stdin.buffer.read()
 coe = list(unpack("<H3IH9H6s", rawcoe))
 
-print "Local date and time:        ", datetime.datetime.now()
-print "MAC address:                ", strHex(       coe[14]      )
-print "IP address type:            ", strIpType(    coe[ 0]      )
-print "IP address:                 ", ip_address(   coe[ 1]      )
-print "Net mask:                   ", ip_address(   coe[ 2]      )
-print "Gateway IP address:         ", ip_address(   coe[ 3]      )
-print "PTP protocol and role:      ", strRole(      coe[ 4]      )
-print "Transport layer:            ", strTransport( coe[ 5]      )
-print "Domain number:              ",               coe[ 6]
-print "Sync interval (sec):        ", strInterval(  coe[ 7]      )
-print "Delay interval (sec):       ", strInterval(  coe[ 8]      )
-print "Delay mechanism:            ", strMech(      coe[ 9]      )
-print "Announce interval (sec):    ", strInterval(  coe[10]      )
-print "Announce TO (intervals):    ",               coe[11]
-print "Priority 1:                 ",               coe[12]
-print "Priority 2:                 ",               coe[13]
+print("Local date and time:        ", datetime.datetime.now())
+print("MAC address:                ", strHex(       coe[14]      ))
+print("IP address type:            ", strIpType(    coe[ 0]      ))
+print("IP address:                 ", ip_address(   coe[ 1]      ))
+print("Net mask:                   ", ip_address(   coe[ 2]      ))
+print("Gateway IP address:         ", ip_address(   coe[ 3]      ))
+print("PTP protocol and role:      ", strRole(      coe[ 4]      ))
+print("Transport layer:            ", strTransport( coe[ 5]      ))
+print("Domain number:              ",               coe[ 6])
+print("Sync interval (sec):        ", strInterval(  coe[ 7]      ))
+print("Delay interval (sec):       ", strInterval(  coe[ 8]      ))
+print("Delay mechanism:            ", strMech(      coe[ 9]      ))
+print("Announce interval (sec):    ", strInterval(  coe[10]      ))
+print("Announce TO (intervals):    ",               coe[11])
+print("Priority 1:                 ",               coe[12])
+print("Priority 2:                 ",               coe[13])
 

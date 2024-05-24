@@ -41,4 +41,4 @@ byteCount=6
 rawcoe="${rawcoe}"$(readRawCoe "${netId}" "${port}" "${coeIndex}" "${coeSubindex}" "${byteCount}")
 
 # Convert to binary and decode.
-echo "${rawcoe}" | xxd -p -r | python2 -u "${homeDir}"/decodePtpConfig.py
+echo "${rawcoe}" | xxd -p -r | "${homeDir}"/decodePtpConfig.py
