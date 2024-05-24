@@ -14,6 +14,8 @@
 #   false (or 'absent') removes it; 'nothing' does nothing.
 # @param filter_changer
 #   True (or 'present') to install; false (or 'absent') to remove.
+# @param shutter
+#   True to install shutter utilities.
 # @param ft4232h
 #   true or false to enable ft4232h.
 # @param pkgurl
@@ -30,6 +32,7 @@ class ccs_hcu (
   Variant[Boolean,String] $imanager = false,
   Variant[Boolean,String] $filter_changer = false,
   Boolean $ft4232h = false,
+  Boolean $shutter = false,
   String $pkgurl = 'https://example.org',
   Variant[Sensitive[String[1]],String[1]] $pkgurl_user = Sensitive('someuser'),
   Sensitive[String[1]] $pkgurl_pass = Sensitive('somepass'),
@@ -73,5 +76,9 @@ class ccs_hcu (
 
   if $ft4232h {
     include ccs_hcu::ft4232h
+  }
+
+  if $shutter {
+    include ccs_hcu::shutter
   }
 }
