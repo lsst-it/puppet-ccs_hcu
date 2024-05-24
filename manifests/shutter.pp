@@ -39,5 +39,6 @@ class ccs_hcu::shutter () {
     }
   }
 
-  ensure_packages(['python3'])
+  ## vim-common is for the xxd utility used by the ptp scripts.
+  ensure_packages(['python3', 'vim-common'])
 }
