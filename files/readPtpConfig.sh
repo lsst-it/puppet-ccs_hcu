@@ -6,7 +6,7 @@
 
 homeDir="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 
-# shellcheck source=ptpCoeSetup.sh
+# shellcheck source=./files/ptpCoeSetup.sh
 source "${homeDir}"/ptpCoeSetup.sh
 
 # This means read all subindexes.

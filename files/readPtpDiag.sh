@@ -9,7 +9,7 @@ homeDir=$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")
 #
 # See the Confluence page https://confluence.slac.stanford.edu/x/uXYtFw
 
-# shellcheck source=ptpCoeSetup.sh
+# shellcheck source=./files/ptpCoeSetup.sh
 source "${homeDir}"/ptpCoeSetup.sh
 
 # The CoE address for the PTP diagnostic data. We use the special subindex
