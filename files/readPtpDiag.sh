@@ -12,17 +12,30 @@ homeDir=$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")
 # shellcheck source=./files/ptpCoeSetup.sh
 source "${homeDir}"/ptpCoeSetup.sh
 
+# Can we contact the Beckhoff controller? Try asking for its ADS address.
+if ! "${homeDir}"/adstool "${shutterControllerIp}" netid >/dev/null; then
+    echo "Could not contact the Beckhoff controller."
+    exit 1
+ fi
+
+# ADS addressing for the PTP module on EtherCAT.
+netId="${ethercatNetId}"
+port="${ptpAdsPort}"
+
 # The CoE address for the PTP diagnostic data. We use the special subindex
 # that means read all subindexes.
 coeIndex=0xfa80
 coeSubindex=0x0101
 
-# The total number of data bytes to read.
+# Obtain the binary CoE data converted to a hex string.
 byteCount=54
+ptpDiagData=$(readRawCoe ${netId} ${port} ${coeIndex} ${coeSubindex} ${byteCount})
 
-# Index for the shutter unit. Right now it's hard-coded for unit 2.
-iunit=1
+# The latest external (PTP) timestamp is in the External Sync PDO group.
+coeIndex=0x10f4
+coeSubindex=0x12
+byteCount=8
+ptpStamp=$(readRawCoe ${netId} ${port} ${coeIndex} ${coeSubindex} ${byteCount})
 
-# Obtain the raw CoE data then decode it.
-readRawCoe "${ethercatNetId[iunit]}" "${ptpAdsPort[iunit]}" "${coeIndex}" "${coeSubindex}" "${byteCount}" \
-       | xxd -p -r | "${homeDir}"/decodePtpDiag.py
+# Concatenate the pieces of data, convert back to binary and decode.
+echo "${ptpDiagData}${ptpStamp}" | xxd -p -r | "${homeDir}"/decodePtpDiag.py
