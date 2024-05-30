@@ -4,12 +4,21 @@ All notable changes to this project will be documented in this file.
 Each new release typically also includes the latest modulesync defaults.
 These should not affect the functionality of the module.
 
+## [v3.3.1](https://github.com/lsst-it/puppet-ccs_hcu/tree/v3.3.1) (2024-05-30)
+
+[Full Changelog](https://github.com/lsst-it/puppet-ccs_hcu/compare/v3.2.1...v3.3.1)
+
+**Implemented enhancements:**
+
+- Add option to install shutter utilities [\#32](https://github.com/lsst-it/puppet-ccs_hcu/pull/32) ([glennmorris](https://github.com/glennmorris))
+
 ## [v3.2.1](https://github.com/lsst-it/puppet-ccs_hcu/tree/v3.2.1) (2024-05-21)
 
 [Full Changelog](https://github.com/lsst-it/puppet-ccs_hcu/compare/v3.1.2...v3.2.1)
 
 **Implemented enhancements:**
 
+- Version 3.2.1 [\#31](https://github.com/lsst-it/puppet-ccs_hcu/pull/31) ([glennmorris](https://github.com/glennmorris))
 - \(puppet-ccs\_hcu\) add apache license to repo [\#29](https://github.com/lsst-it/puppet-ccs_hcu/pull/29) ([dtapiacl](https://github.com/dtapiacl))
 
 **Fixed bugs:**
