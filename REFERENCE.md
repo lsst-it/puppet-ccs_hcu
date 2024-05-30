@@ -12,6 +12,7 @@
 * [`ccs_hcu::ft4232h`](#ccs_hcu--ft4232h): Add settings for FT4232H device.
 * [`ccs_hcu::imanager`](#ccs_hcu--imanager): Add (or remove) the iManager module.
 * [`ccs_hcu::power`](#ccs_hcu--power): Add (or remove) hcu shutdown utilities
+* [`ccs_hcu::shutter`](#ccs_hcu--shutter): Install shutter utilities.
 * [`ccs_hcu::vldrive`](#ccs_hcu--vldrive): Add (or remove) the lion vldrive module.
 
 ### Defined types
@@ -33,6 +34,7 @@ The following parameters are available in the `ccs_hcu` class:
 * [`vldrive`](#-ccs_hcu--vldrive)
 * [`imanager`](#-ccs_hcu--imanager)
 * [`filter_changer`](#-ccs_hcu--filter_changer)
+* [`shutter`](#-ccs_hcu--shutter)
 * [`ft4232h`](#-ccs_hcu--ft4232h)
 * [`pkgurl`](#-ccs_hcu--pkgurl)
 * [`pkgurl_user`](#-ccs_hcu--pkgurl_user)
@@ -78,6 +80,14 @@ Default value: `false`
 Data type: `Variant[Boolean,String]`
 
 True (or 'present') to install; false (or 'absent') to remove.
+
+Default value: `false`
+
+##### <a name="-ccs_hcu--shutter"></a>`shutter`
+
+Data type: `Boolean`
+
+True to install shutter utilities.
 
 Default value: `false`
 
@@ -233,6 +243,10 @@ Data type: `Boolean`
 Boolean true on quadbox hosts
 
 Default value: `false`
+
+### <a name="ccs_hcu--shutter"></a>`ccs_hcu::shutter`
+
+Install shutter utilities.
 
 ### <a name="ccs_hcu--vldrive"></a>`ccs_hcu::vldrive`
 
