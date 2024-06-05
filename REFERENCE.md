@@ -7,6 +7,7 @@
 ### Classes
 
 * [`ccs_hcu`](#ccs_hcu): Install hcu-specific stuff.
+* [`ccs_hcu::aiousb`](#ccs_hcu--aiousb): Install aiousb.
 * [`ccs_hcu::canbus`](#ccs_hcu--canbus): Add (or remove) the lion canbus module.
 * [`ccs_hcu::filter_changer`](#ccs_hcu--filter_changer): Add (or remove) filter changer device links
 * [`ccs_hcu::ft4232h`](#ccs_hcu--ft4232h): Add settings for FT4232H device.
@@ -34,6 +35,7 @@ The following parameters are available in the `ccs_hcu` class:
 * [`vldrive`](#-ccs_hcu--vldrive)
 * [`imanager`](#-ccs_hcu--imanager)
 * [`filter_changer`](#-ccs_hcu--filter_changer)
+* [`aiousb`](#-ccs_hcu--aiousb)
 * [`shutter`](#-ccs_hcu--shutter)
 * [`ft4232h`](#-ccs_hcu--ft4232h)
 * [`pkgurl`](#-ccs_hcu--pkgurl)
@@ -83,6 +85,14 @@ True (or 'present') to install; false (or 'absent') to remove.
 
 Default value: `false`
 
+##### <a name="-ccs_hcu--aiousb"></a>`aiousb`
+
+Data type: `Boolean`
+
+True to install aiousb.
+
+Default value: `false`
+
 ##### <a name="-ccs_hcu--shutter"></a>`shutter`
 
 Data type: `Boolean`
@@ -122,6 +132,10 @@ Data type: `Sensitive[String[1]]`
 String specifying password to access pkgurl.
 
 Default value: `Sensitive('somepass')`
+
+### <a name="ccs_hcu--aiousb"></a>`ccs_hcu::aiousb`
+
+Install aiousb.
 
 ### <a name="ccs_hcu--canbus"></a>`ccs_hcu::canbus`
 
