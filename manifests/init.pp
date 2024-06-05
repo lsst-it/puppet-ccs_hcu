@@ -14,6 +14,8 @@
 #   false (or 'absent') removes it; 'nothing' does nothing.
 # @param filter_changer
 #   True (or 'present') to install; false (or 'absent') to remove.
+# @param aiousb
+#   True to install aiousb.
 # @param shutter
 #   True to install shutter utilities.
 # @param ft4232h
@@ -31,6 +33,7 @@ class ccs_hcu (
   Variant[Boolean,String] $vldrive = false,
   Variant[Boolean,String] $imanager = false,
   Variant[Boolean,String] $filter_changer = false,
+  Boolean $aiousb = false,
   Boolean $ft4232h = false,
   Boolean $shutter = false,
   String $pkgurl = 'https://example.org',
@@ -80,5 +83,9 @@ class ccs_hcu (
 
   if $shutter {
     include ccs_hcu::shutter
+  }
+
+  if $aiousb {
+    include ccs_hcu::aiousb
   }
 }
