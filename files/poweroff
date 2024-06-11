@@ -30,4 +30,5 @@ else
     [ "$(id -un)" = $sudo_user ] || prefix="sudo -u $sudo_user"
 fi
 
-"$prefix" "$prefix2" /usr/bin/systemctl "$task"
+## Do not quote prefix, prefix2.
+$prefix $prefix2 /usr/bin/systemctl "$task"
