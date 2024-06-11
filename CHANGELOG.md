@@ -4,12 +4,21 @@ All notable changes to this project will be documented in this file.
 Each new release typically also includes the latest modulesync defaults.
 These should not affect the functionality of the module.
 
+## [v3.4.2](https://github.com/lsst-it/puppet-ccs_hcu/tree/v3.4.2) (2024-06-11)
+
+[Full Changelog](https://github.com/lsst-it/puppet-ccs_hcu/compare/v3.4.1...v3.4.2)
+
+**Fixed bugs:**
+
+- \(files/poweroff\) remove quoting that breaks the script [\#36](https://github.com/lsst-it/puppet-ccs_hcu/pull/36) ([glennmorris](https://github.com/glennmorris))
+
 ## [v3.4.1](https://github.com/lsst-it/puppet-ccs_hcu/tree/v3.4.1) (2024-06-05)
 
 [Full Changelog](https://github.com/lsst-it/puppet-ccs_hcu/compare/v3.3.1...v3.4.1)
 
 **Implemented enhancements:**
 
+- Version 3.4.1 [\#35](https://github.com/lsst-it/puppet-ccs_hcu/pull/35) ([glennmorris](https://github.com/glennmorris))
 - Add option to install aiousb [\#34](https://github.com/lsst-it/puppet-ccs_hcu/pull/34) ([glennmorris](https://github.com/glennmorris))
 
 ## [v3.3.1](https://github.com/lsst-it/puppet-ccs_hcu/tree/v3.3.1) (2024-05-30)
