@@ -4,9 +4,21 @@ All notable changes to this project will be documented in this file.
 Each new release typically also includes the latest modulesync defaults.
 These should not affect the functionality of the module.
 
+## [v3.5.0](https://github.com/lsst-it/puppet-ccs_hcu/tree/v3.5.0) (2024-06-14)
+
+[Full Changelog](https://github.com/lsst-it/puppet-ccs_hcu/compare/v3.4.2...v3.5.0)
+
+**Implemented enhancements:**
+
+- Add support for Dracal USB PTH450 [\#38](https://github.com/lsst-it/puppet-ccs_hcu/pull/38) ([glennmorris](https://github.com/glennmorris))
+
 ## [v3.4.2](https://github.com/lsst-it/puppet-ccs_hcu/tree/v3.4.2) (2024-06-11)
 
 [Full Changelog](https://github.com/lsst-it/puppet-ccs_hcu/compare/v3.4.1...v3.4.2)
+
+**Implemented enhancements:**
+
+- Version 3.4.2 [\#37](https://github.com/lsst-it/puppet-ccs_hcu/pull/37) ([glennmorris](https://github.com/glennmorris))
 
 **Fixed bugs:**
 
