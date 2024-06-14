@@ -1,0 +1,13 @@
+# This file is managed by Puppet; changes may be overwritten.
+SUBSYSTEM=="usb", ATTR{idVendor}=="1781", ATTR{idProduct}=="0a98", GROUP="dialout", MODE="0664"
+SUBSYSTEM=="usb", ATTR{idVendor}=="289b", ATTR{idProduct}=="0500", GROUP="dialout", MODE="0664"
+SUBSYSTEM=="usb", ATTR{idVendor}=="289b", ATTR{idProduct}=="0501", GROUP="dialout", MODE="0664"
+SUBSYSTEM=="usb", ATTR{idVendor}=="289b", ATTR{idProduct}=="0502", GROUP="dialout", MODE="0664"
+SUBSYSTEM=="usb", ATTR{idVendor}=="289b", ATTR{idProduct}=="0503", GROUP="dialout", MODE="0664"
+SUBSYSTEM=="usb", ATTR{idVendor}=="289b", ATTR{idProduct}=="0504", GROUP="dialout", MODE="0664"
+SUBSYSTEM=="usb", ATTR{idVendor}=="289b", ATTR{idProduct}=="0505", GROUP="dialout", MODE="0664"
+SUBSYSTEM=="usb", ATTR{idVendor}=="289b", ATTR{idProduct}=="0506", GROUP="dialout", MODE="0664"
+SUBSYSTEM=="usb", ATTR{idVendor}=="289b", ATTR{idProduct}=="0507", GROUP="dialout", MODE="0664"
+SUBSYSTEM=="usb", ATTR{idVendor}=="289b", ATTR{idProduct}=="0508", GROUP="dialout", MODE="0664"
+SUBSYSTEM=="usb", ATTR{idVendor}=="289b", ATTR{idProduct}=="0509", GROUP="dialout", MODE="0664"
+SUBSYSTEM=="usb", ATTR{idVendor}=="289b", ATTR{idProduct}=="0510", GROUP="dialout", MODE="0664"

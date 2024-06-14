@@ -13,6 +13,7 @@
 * [`ccs_hcu::ft4232h`](#ccs_hcu--ft4232h): Add settings for FT4232H device.
 * [`ccs_hcu::imanager`](#ccs_hcu--imanager): Add (or remove) the iManager module.
 * [`ccs_hcu::power`](#ccs_hcu--power): Add (or remove) hcu shutdown utilities
+* [`ccs_hcu::pth450`](#ccs_hcu--pth450): Install Dracal USB pth450 support.
 * [`ccs_hcu::shutter`](#ccs_hcu--shutter): Install shutter utilities.
 * [`ccs_hcu::vldrive`](#ccs_hcu--vldrive): Add (or remove) the lion vldrive module.
 
@@ -38,6 +39,7 @@ The following parameters are available in the `ccs_hcu` class:
 * [`aiousb`](#-ccs_hcu--aiousb)
 * [`shutter`](#-ccs_hcu--shutter)
 * [`ft4232h`](#-ccs_hcu--ft4232h)
+* [`pth450`](#-ccs_hcu--pth450)
 * [`pkgurl`](#-ccs_hcu--pkgurl)
 * [`pkgurl_user`](#-ccs_hcu--pkgurl_user)
 * [`pkgurl_pass`](#-ccs_hcu--pkgurl_pass)
@@ -106,6 +108,14 @@ Default value: `false`
 Data type: `Boolean`
 
 true or false to enable ft4232h.
+
+Default value: `false`
+
+##### <a name="-ccs_hcu--pth450"></a>`pth450`
+
+Data type: `Boolean`
+
+True to install Dracal USB-PTH450 sensor support.
 
 Default value: `false`
 
@@ -257,6 +267,24 @@ Data type: `Boolean`
 Boolean true on quadbox hosts
 
 Default value: `false`
+
+### <a name="ccs_hcu--pth450"></a>`ccs_hcu::pth450`
+
+Install Dracal USB pth450 support.
+
+#### Parameters
+
+The following parameters are available in the `ccs_hcu::pth450` class:
+
+* [`tarfile`](#-ccs_hcu--pth450--tarfile)
+
+##### <a name="-ccs_hcu--pth450--tarfile"></a>`tarfile`
+
+Data type: `String`
+
+Name of tarfile to install.
+
+Default value: `'dracalview-client-bin-3.2.2.tar.xz'`
 
 ### <a name="ccs_hcu--shutter"></a>`ccs_hcu::shutter`
 

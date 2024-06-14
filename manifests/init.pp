@@ -20,6 +20,8 @@
 #   True to install shutter utilities.
 # @param ft4232h
 #   true or false to enable ft4232h.
+# @param pth450
+#   True to install Dracal USB-PTH450 sensor support.
 # @param pkgurl
 #   String specifying URL to fetch sources from.
 # @param pkgurl_user
@@ -35,6 +37,7 @@ class ccs_hcu (
   Variant[Boolean,String] $filter_changer = false,
   Boolean $aiousb = false,
   Boolean $ft4232h = false,
+  Boolean $pth450 = false,
   Boolean $shutter = false,
   String $pkgurl = 'https://example.org',
   Variant[Sensitive[String[1]],String[1]] $pkgurl_user = Sensitive('someuser'),
@@ -55,6 +58,10 @@ class ccs_hcu (
   }] }
 
   $opts = Hash(flatten($opts1))
+
+  ## Frequently needed on HCUs.
+  ## The -devel packages in the ccs_hcu role (easier due to crb repo).
+  ensure_packages(['libusb'])
 
   class { 'ccs_hcu::power':
     ensure  => present,
@@ -87,5 +94,9 @@ class ccs_hcu (
 
   if $aiousb {
     include ccs_hcu::aiousb
+  }
+
+  if $pth450 {
+    include ccs_hcu::pth450
   }
 }
