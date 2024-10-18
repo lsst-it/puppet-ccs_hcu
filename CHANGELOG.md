@@ -8,10 +8,6 @@ These should not affect the functionality of the module.
 
 [Full Changelog](https://github.com/lsst-it/puppet-ccs_hcu/compare/v3.5.0...v3.6.0)
 
-**Breaking changes:**
-
-- Update from voxpupuli modulesync\_config [\#40](https://github.com/lsst-it/puppet-ccs_hcu/pull/40) ([jhoblitt](https://github.com/jhoblitt))
-
 **Implemented enhancements:**
 
 - update metadata.json for saza/sudo 9.0 version constraint [\#45](https://github.com/lsst-it/puppet-ccs_hcu/pull/45) ([badenerb](https://github.com/badenerb))
