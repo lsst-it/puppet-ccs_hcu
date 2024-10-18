@@ -4,12 +4,25 @@ All notable changes to this project will be documented in this file.
 Each new release typically also includes the latest modulesync defaults.
 These should not affect the functionality of the module.
 
+## [v3.6.0](https://github.com/lsst-it/puppet-ccs_hcu/tree/v3.6.0) (2024-10-18)
+
+[Full Changelog](https://github.com/lsst-it/puppet-ccs_hcu/compare/v3.5.0...v3.6.0)
+
+**Breaking changes:**
+
+- Update from voxpupuli modulesync\_config [\#40](https://github.com/lsst-it/puppet-ccs_hcu/pull/40) ([jhoblitt](https://github.com/jhoblitt))
+
+**Implemented enhancements:**
+
+- update metadata.json for saza/sudo 9.0 version constraint [\#45](https://github.com/lsst-it/puppet-ccs_hcu/pull/45) ([badenerb](https://github.com/badenerb))
+
 ## [v3.5.0](https://github.com/lsst-it/puppet-ccs_hcu/tree/v3.5.0) (2024-06-14)
 
 [Full Changelog](https://github.com/lsst-it/puppet-ccs_hcu/compare/v3.4.2...v3.5.0)
 
 **Implemented enhancements:**
 
+- Version 3.5.0 [\#39](https://github.com/lsst-it/puppet-ccs_hcu/pull/39) ([glennmorris](https://github.com/glennmorris))
 - Add support for Dracal USB PTH450 [\#38](https://github.com/lsst-it/puppet-ccs_hcu/pull/38) ([glennmorris](https://github.com/glennmorris))
 
 ## [v3.4.2](https://github.com/lsst-it/puppet-ccs_hcu/tree/v3.4.2) (2024-06-11)
