@@ -4,6 +4,18 @@ All notable changes to this project will be documented in this file.
 Each new release typically also includes the latest modulesync defaults.
 These should not affect the functionality of the module.
 
+## [v3.7.0](https://github.com/lsst-it/puppet-ccs_hcu/tree/v3.7.0) (2024-12-03)
+
+[Full Changelog](https://github.com/lsst-it/puppet-ccs_hcu/compare/v3.6.0...v3.7.0)
+
+**Implemented enhancements:**
+
+- Add support for advantech EC kernel module [\#48](https://github.com/lsst-it/puppet-ccs_hcu/pull/48) ([glennmorris](https://github.com/glennmorris))
+
+**Fixed bugs:**
+
+- \(shellcheck\) add -x to options, to check sourced files [\#47](https://github.com/lsst-it/puppet-ccs_hcu/pull/47) ([glennmorris](https://github.com/glennmorris))
+
 ## [v3.6.0](https://github.com/lsst-it/puppet-ccs_hcu/tree/v3.6.0) (2024-10-18)
 
 [Full Changelog](https://github.com/lsst-it/puppet-ccs_hcu/compare/v3.5.0...v3.6.0)
