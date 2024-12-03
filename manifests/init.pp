@@ -3,6 +3,9 @@
 #
 # @param quadbox
 #   True if this is a quadbox host.
+# @param advec
+#   True (or 'present') if need specified module;
+#   false (or 'absent') removes it; 'nothing' does nothing.
 # @param canbus
 #   True (or 'present') if need specified module;
 #   false (or 'absent') removes it; 'nothing' does nothing.
@@ -31,6 +34,7 @@
 #
 class ccs_hcu (
   Boolean $quadbox = false,
+  Variant[Boolean,String] $advec = false,
   Variant[Boolean,String] $canbus = false,
   Variant[Boolean,String] $vldrive = false,
   Variant[Boolean,String] $imanager = false,
@@ -44,6 +48,7 @@ class ccs_hcu (
   Sensitive[String[1]] $pkgurl_pass = Sensitive('somepass'),
 ) {
   $opts0 = {
+    'advec'          => $advec,
     'canbus'         => $canbus,
     'vldrive'        => $vldrive,
     'imanager'       => $imanager,
@@ -66,6 +71,10 @@ class ccs_hcu (
   class { 'ccs_hcu::power':
     ensure  => present,
     quadbox => $quadbox,
+  }
+
+  class { 'ccs_hcu::advec':
+    ensure => $opts['advec'],
   }
 
   class { 'ccs_hcu::canbus':
