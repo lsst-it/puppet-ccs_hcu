@@ -7,6 +7,8 @@
 ### Classes
 
 * [`ccs_hcu`](#ccs_hcu): Install hcu-specific stuff.
+* [`ccs_hcu::advec`](#ccs_hcu--advec): Add (or remove) the advantech EC modules.
+Replaces the older imanager.
 * [`ccs_hcu::aiousb`](#ccs_hcu--aiousb): Install aiousb.
 * [`ccs_hcu::canbus`](#ccs_hcu--canbus): Add (or remove) the lion canbus module.
 * [`ccs_hcu::filter_changer`](#ccs_hcu--filter_changer): Add (or remove) filter changer device links
@@ -32,6 +34,7 @@ Install hcu-specific stuff.
 The following parameters are available in the `ccs_hcu` class:
 
 * [`quadbox`](#-ccs_hcu--quadbox)
+* [`advec`](#-ccs_hcu--advec)
 * [`canbus`](#-ccs_hcu--canbus)
 * [`vldrive`](#-ccs_hcu--vldrive)
 * [`imanager`](#-ccs_hcu--imanager)
@@ -49,6 +52,15 @@ The following parameters are available in the `ccs_hcu` class:
 Data type: `Boolean`
 
 True if this is a quadbox host.
+
+Default value: `false`
+
+##### <a name="-ccs_hcu--advec"></a>`advec`
+
+Data type: `Variant[Boolean,String]`
+
+True (or 'present') if need specified module;
+false (or 'absent') removes it; 'nothing' does nothing.
 
 Default value: `false`
 
@@ -142,6 +154,42 @@ Data type: `Sensitive[String[1]]`
 String specifying password to access pkgurl.
 
 Default value: `Sensitive('somepass')`
+
+### <a name="ccs_hcu--advec"></a>`ccs_hcu::advec`
+
+https://www.advantech.com/en-us/support/details/software-api?id=1-2JZ4BXI
+
+#### Parameters
+
+The following parameters are available in the `ccs_hcu::advec` class:
+
+* [`ensure`](#-ccs_hcu--advec--ensure)
+* [`module`](#-ccs_hcu--advec--module)
+* [`version`](#-ccs_hcu--advec--version)
+
+##### <a name="-ccs_hcu--advec--ensure"></a>`ensure`
+
+Data type: `String`
+
+String saying whether to install ('present') or remove ('absent') module.
+
+Default value: `'nothing'`
+
+##### <a name="-ccs_hcu--advec--module"></a>`module`
+
+Data type: `String`
+
+Module name.
+
+Default value: `'advec'`
+
+##### <a name="-ccs_hcu--advec--version"></a>`version`
+
+Data type: `String`
+
+Version string.
+
+Default value: `'2.24'`
 
 ### <a name="ccs_hcu--aiousb"></a>`ccs_hcu::aiousb`
 
