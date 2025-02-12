@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 Each new release typically also includes the latest modulesync defaults.
 These should not affect the functionality of the module.
 
+## [v3.7.1](https://github.com/lsst-it/puppet-ccs_hcu/tree/v3.7.1) (2025-02-12)
+
+[Full Changelog](https://github.com/lsst-it/puppet-ccs_hcu/compare/v3.7.0...v3.7.1)
+
+**Implemented enhancements:**
+
+- \(files/CCS\_QUADBOX\_POWEROFF\) modify for summit usage [\#50](https://github.com/lsst-it/puppet-ccs_hcu/pull/50) ([glennmorris](https://github.com/glennmorris))
+
 ## [v3.7.0](https://github.com/lsst-it/puppet-ccs_hcu/tree/v3.7.0) (2024-12-03)
 
 [Full Changelog](https://github.com/lsst-it/puppet-ccs_hcu/compare/v3.6.0...v3.7.0)
