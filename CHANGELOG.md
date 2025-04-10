@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 Each new release typically also includes the latest modulesync defaults.
 These should not affect the functionality of the module.
 
+## [v3.8.0](https://github.com/lsst-it/puppet-ccs_hcu/tree/v3.8.0) (2025-04-10)
+
+[Full Changelog](https://github.com/lsst-it/puppet-ccs_hcu/compare/v3.7.1...v3.8.0)
+
+**Implemented enhancements:**
+
+- \(metadata.json\) bump saz/sudo to include 9.x [\#53](https://github.com/lsst-it/puppet-ccs_hcu/pull/53) ([badenerb](https://github.com/badenerb))
+- Update dependency puppet\_metadata to v5 [\#52](https://github.com/lsst-it/puppet-ccs_hcu/pull/52) ([renovate[bot]](https://github.com/apps/renovate))
+
 ## [v3.7.1](https://github.com/lsst-it/puppet-ccs_hcu/tree/v3.7.1) (2025-02-12)
 
 [Full Changelog](https://github.com/lsst-it/puppet-ccs_hcu/compare/v3.7.0...v3.7.1)
