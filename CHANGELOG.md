@@ -4,9 +4,14 @@ All notable changes to this project will be documented in this file.
 Each new release typically also includes the latest modulesync defaults.
 These should not affect the functionality of the module.
 
-## [v3.8.1](https://github.com/lsst-it/puppet-ccs_hcu/tree/v3.8.1) (2025-09-12)
+## [v3.8.2](https://github.com/lsst-it/puppet-ccs_hcu/tree/v3.8.2) (2025-09-13)
 
-[Full Changelog](https://github.com/lsst-it/puppet-ccs_hcu/compare/v3.8.1...v3.8.1)
+[Full Changelog](https://github.com/lsst-it/puppet-ccs_hcu/compare/v3.8.1...v3.8.2)
+
+**Implemented enhancements:**
+
+- Update actions/labeler action to v6 [\#63](https://github.com/lsst-it/puppet-ccs_hcu/pull/63) ([renovate[bot]](https://github.com/apps/renovate))
+- Update actions/checkout action to v5 [\#61](https://github.com/lsst-it/puppet-ccs_hcu/pull/61) ([renovate[bot]](https://github.com/apps/renovate))
 
 **Fixed bugs:**
 
