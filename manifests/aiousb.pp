@@ -7,13 +7,13 @@ class ccs_hcu::aiousb () {
   $hex_path = '/usr/share/usb'
 
   ensure_resources('file', {
-      $hex_path => {
-        ensure => directory,
-        owner  => 'root',
-        group  => 'root',
-        mode   => '0755',
-        backup => false,
-      },
+    $hex_path => {
+      ensure => directory,
+      owner  => 'root',
+      group  => 'root',
+      mode   => '0755',
+      backup => false,
+    },
   })
 
   $hexes = ['USB-DIO-96.hex']

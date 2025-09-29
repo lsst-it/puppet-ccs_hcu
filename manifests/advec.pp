@@ -55,11 +55,11 @@ class ccs_hcu::advec (
 
     if $ensure == present {
       ensure_resources('group', {
-          'gpio' => {
-            'ensure'     => 'present',
-            'forcelocal' => 'true',
-            'system'     => 'true',
-          }
+        'gpio' => {
+          'ensure'     => 'present',
+          'forcelocal' => 'true',
+          'system'     => 'true',
+        }
       })
 
       exec { 'usermod ccs advec_gpio':
