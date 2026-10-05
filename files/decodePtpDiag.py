@@ -98,7 +98,7 @@ def strTime(time64, utcOffset, offsetIsValid):
     # so we add them again. The result will be correct only if the PTP module
     # and the datetime library agree on the number of leap seconds.
     if offsetIsValid:
-        result += timedelta(utcOffset)
+        result += timedelta(seconds=utcOffset)
     return result.strftime(f"%a, %d %b %Y %H:%M:%S.%f {zone}")
 
 
